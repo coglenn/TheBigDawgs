@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<label for="content">Highest Point Scorer
+<ul> {{ clean_top2 }} </ul>
+</label>
+<label for="content">lowest Point Scorer
+<ul> {{ bottom }} </ul>
+</label>
+<label for="content">Standings
+  </label>
+  <br></br>
+  <table border = 1>
+  <thead>
+    <td>Pos</td>
+    <td>Team</td>
+  </thead>
+  <!-- {% if pos %}
+{% for ps in pos %}
+<tr>
+  <td> {{ ps }}
+  {% endfor %}
+{% endif %} -->
+
+
+{% if results %}
+{% for result in results %}
+
+
+
+      <td> {{ result }} </td>
+    </tr>
+    </table>
+
+{% endfor %}
+{% endif %}
+
+{% endblock %}

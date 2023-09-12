@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css')}}" />
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>The Big Dawgs Versus</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="nav.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='versus.css')}}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+    <body>
+      <nav class="nav">
+          <a href="{{ url_for('main.news') }}" class="nav__link">
+              <i class="material-icons">newspaper</i>
+              <span class="nav__text">NEWS</span>
+          </a>
+          <a href="{{ url_for('main.power') }}" class="nav__link">
+              <i class="material-icons">format_list_numbered</i>
+              <span class="nav__text">POWER</span>
+          </a>
+          <a href="{{ url_for('main.versus') }}" class="nav__link nav__link--active">
+              <i class="material-icons">sports_mma</i>
+              <span class="nav__text">VERSUS</span>
+          </a>
+          <a href="{{ url_for('main.forum') }}" class="nav__link">
+              <i class="material-icons">forum</i>
+              <span class="nav__text">FORUM</span>
+          </a>
+      </nav>
+        <header>
+            <h1>'Mish's 'Matchups</h1>
+        </header>
+        <main>
+            <div class="news-post" id="news1">
+
+                <p>
+                    Love, Hardship, Betrayal, Revenge, Justice.<br> These are the storylines you lust for and bust for.
+                </p>
+            </div>
+            <h2>Game of the Week</h2>
+            <div class="mandment-container">
+                <div class="mandments" id="musing2">
+                    <h3>Motor City Miracle (W12)</h3>
+                    <p>
+                        The brain worm is dead. Will Sam's greatness finally be realized, or were there methods to the madness that kept him afloat.  Andrew and star running back Jamaal will look to avenge the death of Swift.  Williams has been doing his stretches and watching anime fight videos in preperation for a record 5yd 5td beatdown. You dream for a matchup like this with so much playoff tension on the line. Both teams will desperately need this win to keep their heads above water.
+                        <img src="../static/alwayshasbeen.jpg">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing2">
+                    <h3>The Bench Revolution (W11)</h3>
+                    <p>
+                        Two men, fighting for their playoff lives in pitched combat. What may surprise you is that these two teams are only separated in standings by a single win. A lot will come down to the stars on Teteo’s team simply showing up to secure a win. If there are down performances from oligarchs, Amon and Henry, Caleb's working class warriors could upend the status quo.  
+                        <img src="../static/execution.jpg">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing2">
+                    <h3>Tubthumping (W10)</h3>
+                    <p>
+                        A feud that is looked forward to each year, Kyler and Jason should have a fun battle. Jason has emerged as a contender with his usual group of stars. Kyler kept getting knocked down but he got up again and is now finding his stride. Could this finally be the year Kyler beats Jason? It’s a tough call on who will win, but it’s not hard to call this the matchup of the week. 
+                        <img src="../static/kylerchumbawamba.jpg">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing2">
+                    <h3>Child's Play (W9)</h3>
+                    <p>
+                        Looks like we get an early preview of what could be a gargantuan playoff matchup. Two elites battling it out and testing their new weapons in a game that will have serious implications for the league standings. Halloween has passed for the rest of us, but not for Colt as he will be at a serious disadvantage with a bye-pocalypse on his bench and the baby muncher at his throat. Colt has massive depth and will still be a danger to upset Jason who is looking to right the ship after a week 8 L. 
+                        <img src="../static/tyreekchucky.jpg">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing2">
+                    <h3>21 Cum Salute (W8)</h3>
+                    <p>
+                        Brothers separated only by walls. Possibly able to hear each other masturbate on a quiet night. Their bond will be pushed to the test. A wounded Teteo will be prime for upset by now formerly winless Kyler. A title card befitting the game of the week. 
+                        <img src="../static/pressFantoniobrown.jpg">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing2">
+                    <h3>The Paqui Fiesta Bowl (W7)</h3>
+                    <p>
+                        While The Big Dawgs TM have been posturing to secure a playoff run and a chance at the championship.  Kyler and Josh have been preparing for their own championSHIT.  Likely the most important match we will see until the very end, this battle could determine who will live and who will eat hot chip and die.
+                        <img src="../static/kylervsjosh.png">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing2">
+                    <h3>A game of thrones. (W6)</h3>
+                    <p>
+                        Royals clash in this highly anticipated matchup.  Both with a strong claim to the throne, the winner gains a leg up in the division as we head towards midseason. Teteo will have to contend with bye weeks for both King Henry and The Sun God. Luckily for him the arrival of Breece Hall’s foretold RB1 potential is here. Hall will have a chance to take revenge on the team that traded him for peanuts in the preseason. Bryan will have his full team available including his own RB surprise in RhamondreSZN.  When you play the game of thrones you win or you BYE.
+                        <img src="../static/kinghenry.jpg">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing2">
+                    <h3>Out with the old, in with the new. (W5)</h3>
+                    <p>
+                        A battle of the division’s top dawg and a young upstart looking to build on a strong finish from last week. Bryan will need to count on some solid showings for a few flex plays to keep his crown.
+                        <img src="../static/jjgriddy.jpg">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing2">
+                    <h3>Weekend at Dre's (W4)</h3>
+                    <p>
+                        Sam’s beautiful little baby boy Swift is down with injury, time for the backup to shine. Zack rides high after securing a win during a down week for the league. Two titans of the Fallen Angels clash.
+                        <img src="../static/weekendatdeandres.jpg">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing2">
+                    <h3>Mike Evanescence (W3)</h3>
+                    <p>
+                        The ultimate House hater vs the undisputed champion of The House. Time to settle this dispute. Zack catches a break with Mike Evans out, little does he know it will only serve to bring Bryan's team to life.
+                        <img src="../static/bring me to life mike.png">
+                    </p>
+                   </div>
+                <div class="mandments" id="musing1pt1">
+                        <h3>ROCKY (W2)</h3>
+                        <p>
+                            He's been beaten, bruised up, and broken. Down but not out, Caleb is looking to rise from the ashes after a harrowing defeat. Coach has his work cut out for him against the highest scoring team from week 1. Will Najee rally to carry the lifeless corpse of Hurst so good :*).  Or are we in for a legendary Barkley beatdown.<br>
+                        <img src="https://a4.espncdn.com/combiner/i?img=%2Fphoto%2F2018%2F0621%2Fr389700_1296x729_16%2D9.jpg&w=1140&cquality=40&format=jpg">
+                        </p>
+                    </div>
+
+            </div>
+            <h2>Predictions</h2>
+            <div class="mandment-container">
+                <div class="mandments" id="matchup12">
+                    <h3>Week 12 Matchups</h3>
+                    <p>
+                        SAM VS ANDREW (see game of the week) <br><br>Winner: Andrew<br><br><br>
+                        TETEO VS BRYAN:<br><br>Two men that absolutely need a win. Teteo, so that he can hold onto his slim chance of making the playoffs. Bryan, so the peasants will shut the fuck up.
+<br><br>Winner: Bryan<br><br><br>
+                        KYLER VS JAKE:<br><br>Behind his friendly frames or and winning smile, Jake hides a deep dark secret. A killer mentality and the list for victory. Kyler is not one to be fooled by the thin veneer of friendship and kindness, he will be out for blood and need to strike first and hard and not stop until Jake has finished. In 2nd place.
+ <br><br>Winner: Jake<br><br><br>
+                        ZACK VS JASON:<br><br> The haves versus the have-nots. Rich versus poor. Chaotic evil versus chaotic neutral. Two great friends who will leave it all on the gridiron. Sweaty, exhausted, totally drained of their mental and physical seed. Wrapped in each others arms breathing heavily as they both intertwine. Naked. 
+ <br><br>Winner: Jason<br><br><br>
+                        ETHAN VS CALEB:<br><br>In what I looks to be a feel-good matchup between two buds, we look forward to good sportsmanship and maybe even an exciting game! Only Ethan has the major likelihood to make the playoffs, but Caleb does have a glimmer of hope and will look to play upset for week 12. 
+                        <br><br>Winner: Caleb<br><br><br>
+                        COLT VS JOSH:<br><br>Coming off the heels of beating the #1 overall ranked team in the league, Josh will need to be a giant killer again to fend off the titans of a team helmed by Colt Dale. Colt has a massive projection, but Josh looked sure defeat in the face before and laughed. 
+                        <br><br>Winner: Colt<br><br><br>
+                    </p>
+                    </div>
+                <div class="mandments" id="matchup11">
+                    <h3>Week 11 Matchups</h3>
+                    <p>
+                        TETEO VS CALEB (see game of the week) <br><br>Winner: Teteo<br><br><br>
+                        JOSH VS BRYAN:<br><br>We all love a feel good story. Underdog, counted out, no one believes. Yet you forge on and end victorious all the same. Well that was last week. In week 11 Josh faces a real team and will need a miracle to pull off the upset.  <br><br>Winner: Bryan<br><br><br>
+                        COLT VS JAKE:<br><br>Taking advantage of Jake fresh off of mourning his golden child, Colt will show no mercy in snatching this victory. Jake should look to manage his players minutes more carefully and avoid losing Kelce in a similar fashion.  
+ <br><br>Winner: Colt<br><br><br>
+                        KYLER VS ANDREW:<br><br> With Josh now newly nipping at his heels as they both run as fast as they can from the one chip challenge, Kyler should have a fire lit under him pushing him to new heights this week. Andrew is still trying to put the pieces of this roster together even this late in the season and may not see the train coming down the tracks.  
+ <br><br>Winner: Kyler<br><br><br>
+                        SAM VS JASON:<br><br>Jason needs to recenter himself after barely escaping with a win in an under 100 point mud fight with Kyler last week. He will have to contend with yet another week of bye week booboo’s and top 5 tight end Goedert hitting the IR. Luckily for him Sam will be in a similar conundrum with several key pieces on the bench. We expect to see another low scoring snooze fest from these two playoff contending hopefuls.    
+                        <br><br>Winner: Sam<br><br><br>
+                        ETHAN VS ZACK:<br><br>On the surface a matchup that skews heavily in Zack’s favor with a heavy QB advantage and across the board reliable, if not low ceiling players for the Big Cat. Ethan will be starting off at a disadvantage on many fronts but will gain a boost with Khalil Herbert entering IR and clearing the way for David Montgomery to be lead back. Juju possibly being out with ice cream brain would be another setback for the group. Ethan has been on the receiving end of several massive smack downs this year, can he avoid another? 
+                        <br><br>Winner: Ethan<br><br><br>
+                    </p>
+                    </div>
+                <div class="mandments" id="matchup10">
+                    <h3>Week 10 Matchups</h3>
+                    <p>
+                        KYLER VS JASON (see game of the week) <br><br>Winner: Jason<br><br><br>
+                        JAKE VS BRYAN:<br><br>Down key pieces like Lamar and Mondre, Bryan will be scrambling to fill the holes. Jake should be able to clean up here.   <br><br>Winner: Jake<br><br><br>
+                        COLT VS ANDREW:<br><br>Colt will be ready to avenge his week 9 loss with a team of fully rested starters. Try as he might, but Andrew will have a tough time fighting the onslaught. 
+ <br><br>Winner: Colt<br><br><br>
+                        SAM VS ETHAN:<br><br>Two teams heavily reliant on the Cincinnati Bengals will be without their precious jewels as the tigers go on bye. Sam will be able to employ Justin Fields happily in his QB slot while Ethan will less happily be replacing Jamar Chase and Tyler Boyd with Chase Claypool presumably. Both should make for interesting concoctions. 
+ <br><br>Winner: Sam<br><br><br>
+                        TETEO VS ZACK:<br><br>This matchup should be incredibly important for both sides with Teteo and Zack both fighting hard for a playoff berth. Teteo will undoubtedly still have the week 9 single point loss at the forefront of his mind, he will need to be focused on the task at hand as Zack is no slouch. Keep your eye on this one.   
+                        <br><br>Winner: Teteo<br><br><br>
+                        CALEB VS JOSH:<br><br>There may not be a lot of good reasons to check in on this stinker of a matchup, but seeing if this is finally the week that Josh takes his first victim will be one of them. Caleb is a prime suspect for the L, but stays similarly matched with the winless Raggy. 
+                        <br><br>Winner: Josh<br><br><br>
+                    </p>
+                    </div>
+                <div class="mandments" id="matchup9">
+                    <h3>Week 9 Matchups</h3>
+                    <p>
+                        COLT VS JASON (see game of the week) <br><br>Winner: JASON<br><br><br>
+                        CALEB VS JAKE:<br><br>Jake is looking rather suspect in week nine without lead RB Nick Chubb in the lineup for his bye. Caleb has a great opportunity to get some hope for a playoff berth, but his roster still might not have the juice. Jake should be able to hold on here.     <br><br>Winner: Jake<br><br><br>
+                        ANDREW VS BRYAN:<br><br>Teammates turned foes on the fantasy field. On paper Andrew looks ready to put up a good fight, but a hobbled JT won’t be able to keep up. Bryan builds towards the playoffs in stride. 
+ <br><br>Winner: Bryan<br><br><br>
+                        KYLER VS ETHAN:<br><br>Our two favorite bunkmates will be going toe to toe this week, which coincidentally is how they usually sleep at the draft party. Kyler has refined his squad and is ready to make a late season push, or at least to upset some playoff hopefuls. Ethan very much still in the hunt will need to overcome the loss of Jamarr Chase to stay away from giving Kyler his second win on the season. 
+ <br><br>Winner: Ethan<br><br><br>
+                        TETEO VS SAM:<br><br>A new look team for Sam will be up for a tough task against Teteo who is gaining momentum thanks to team captain Derrick “The Yeti” Henry. Sam made a splash trade sending away his most potent player in Saquan, for several high scoring pieces. Not all of these players will be available, making this game even more challenging. Teteo will also be bringing the Sun God back into the fold. When gamers clash, we all win.   
+                        <br><br>Winner: Teteo<br><br><br>
+                        ZACK VS JOSH:<br><br>While there is a lot to feel positive about for Josh despite his winless existence, this week should shape up to be more of the same. Bye week is hitting at the worst time for Josh and he will be down multiple key players including the new addition of Cowboys possible RB1 for the season Tony Pollard. Zack shouldn’t have a tough time cleaning up this week, but isn’t projected for much of a point barrage himself. Keep an eye for a possible close one here.
+                        <br><br>Winner: Zack<br><br><br>
+                    </p>
+                    </div>
+                <div class="mandments" id="matchup8">
+                    <h3>Week 8 Matchups</h3>
+                    <p>
+                        KYLER VS TETEO (see game of the week) <br><br>Winner: TETEO<br><br><br>
+                        JASON VS BRYAN:<br><br>Two of the most infamous owners in the league come to blows in week 8. Boastful, successful, feared, and respected this bout will be akin to a WWE title match, big personalities and all.    <br><br>Winner: Bryan<br><br><br>
+                        ZACK VS JAKE:<br><br>If these two can’t be found before their face off this in day just look at the closest casino, you’re likely to see them losing some money. When these two gamblers tee off we will will settle once and for all who will hold, and who will fold. Also who will run away too. <br><br>Winner: Jake<br><br><br>
+                        CALEB VS ANDREW:<br><br>Both teams here have been massive disappointments thus far on the year. Andrew having had a short run of success to start the season and Caleb never having had a moment of hope. Last week was a slight improvement for Caleb and he gets the nod here. <br><br>Winner: Caleb<br><br><br>
+                        COLT VS ETHAN:<br><br>Colt, the newly crowned king of the league, will have his first opportunity to defend the title. Ethan will be packing a dual WR threat that can break any game at a moments notice while Colt’s even handed greatness should be able to weather any opponent.  
+                        <br><br>Winner: Colt<br><br><br>
+                        JOSH VS SAM:<br><br>The next opponent in the paqui gauntlet appears before Josh. He desperately needs to win to even with Kyler to escape the heat. Sam will have to hope that Kyle Pitts can be a difference maker now and for that reason this one is a toss-up. 
+                        <br><br>Winner: Sam<br><br><br>
+                    </p>
+                    </div>
+                <div class="mandments" id="matchup7">
+                    <h3>Week 7 Matchups</h3>
+                    <p>
+                        KYLER VS JOSH (see game of the week) <br><br>Winner: Josh<br><br><br>
+                        ETHAN VS BRYAN:<br><br>Bryan will be undermanned and will need to get crafty to be able to come out on top. Ethan will be missing a pleura or two as well and will need to capitalize on this opportunity if he wants to stay in the playoff race.   <br><br>Winner: Ethan<br><br><br>
+                        SAM VS JAKE:<br><br>Bye weeks will be playing another major factor in this contest with Jake’s great white hope out of contention. While that may seem to put Sam at an advantage savvy viewers will note that Sam will also be without a key piece if his roster as the Rams defense will also be on bye this week.   <br><br>Winner: Sam<br><br><br>
+                        ZACK VS ANDREW:<br><br>A bloodbath of inscribed for Zack should have him scrambling to the waiver wire. A player like Josh Allen will be near impossible to replace. Andrew has a slightly more replaceable Kirk Cousins on bye as well, but we feel bad for both equally.   <br><br>Winner: Andrew<br><br><br>
+                        JASON VS CALEB:<br><br>It’s hard to find much hope for a big bounce back for Caleb during the start of the bye-pocalypse. Jason is licking his chops at this delicious matchup. 
+                        <br><br>Winner: Jason<br><br><br>
+                        COLT VS TETEO:<br><br>The up and coming superteam is about butt heads with the OG. For a few weeks now Teteo's squad has been sedated by injury and players on bye. Rock Lee will need to take off the ankle weights if he wants to compete against Colt's beefy boys. Hopefully X-factor Geno has been practicing his creole, because it's time to cook.
+                        <br><br>Winner: Colt<br><br><br>
+                    </p>
+                    </div>
+                <div class="mandments" id="matchup6">
+                    <h3>Week 6 Matchups</h3>
+                    <p>
+                        TETEO VS BRYAN (see game of the week) <br><br>Winner: Bryan<br><br><br>
+                        KYLER VS JAKE:<br><br>Jake riding high on a surging wave of momentum should find little resistance against Kyler’s squad who could be facing an 0-6 start. This one is looking lopsided.  <br><br>Winner: Jake<br><br><br>
+                        SAM VS ANDREW:<br><br>What Sam had hoped to be a get right game after last week’s loss could turn out to be the opposite. Sam will be down Swift and Cooks thanks to byes and a few tough matchups for key positions. Andrew is hoping for several players to score above single digits so this could be a low scoring, close affair.   <br><br>Winner: Sam<br><br><br>
+                        JASON VS ZACK:<br><br>No longer is this storied rivalry confined to the links. Week 6 places brother against brother. Jason with a suddenly fearsome roster against Zack who needs to right the ship of a previously steady team. This one could get ugly. Not even a GP pizza could settle this bad blood.  <br><br>Winner: Jason<br><br><br>
+                        ETHAN VS CALEB:<br><br>Like an old west shootout but both guns misfire and neither man remembered to zip up their fly. Ethan and Caleb are having an up and down season leaning towards dysfunction. Whoever wins would go a long way towards cementing themselves as a respectable institution in this league.
+                        <br><br>Winner: Ethan<br><br><br>
+                        COLT VS JOSH:<br><br>We can only hope that Colt is not cruel in his dismantling of Josh this week. It shouldn’t be close.
+                        <br><br>Winner: Colt<br><br><br>
+                    </p>
+                    </div>
+                <div class="mandments" id="matchup5">
+                    <h3>Week 5 Matchups</h3>
+                    <p>
+                        SAM VS BRYAN (see game of the week) <br><br>Winner: Bryan<br><br><br>
+                        KYLER VS COLT:<br><br>Barely having time to mourn the season ending injury for Javonte, Kyler must steel himself to face a revamped squad for Colt. Turning depth into more depth Colt will have to grapple with which WR1 to play in his flex. Hard to say who has the more difficult matchup between the two. <br><br>Winner: Colt<br><br><br>
+                        ZACK VS CALEB:<br><br>Hoping to put his new toys to work, Caleb will be starting in a hole of his own design projected for 17 less points than Zack to start the week. Hard to see how he climbs out of this one, but maybe digging deeper will be the answer.  <br><br>Winner: Zack<br><br><br>
+                        JOSH VS JAKE:<br><br>If you thought that Caleb’s projection gap was bad, then stop reading here because Josh will be starting off with 25 points to make up before the games even kick off. Jake’s continued play of Raheem Mostert began as a question mark, but now seems like a cruel joke. <br><br>Winner: Jake<br><br><br>
+                        TETEO VS ANDREW:<br><br>A comically bad week 4 for Andrew has him on much less steady ground than in recent memory. A great chance to prove that last week was a freak fluke is complicated by Teteo in his way. The Yeti lord is ready to unleash the Sun God back after injury and rumblings that a Breece breakout is possible.
+                        <br><br>Winner: Teteo<br><br><br>
+                        JASON VS ETHAN:<br><br>A week of players performing above projections has Jason feeling his oats and back in regular gif spamming form. Ethan is no slouch, however and has a full bladder ready to piss on Jason’s steel cut bravado.
+
+                        <br><br>Winner: JASON<br><br><br>
+                    </p>
+                    </div>
+                <div class="mandments" id="matchup4">
+                    <h3>Week 4 Matchups</h3>
+                    <p>
+                        ZACK VS SAM (see game of the week) <br><br>Winner: Zack<br><br><br>
+                        KYLER VS BRYAN:<br><br>The arguably peak underperforming roster this season, helmed by the usually dependable Kyler, heads into week four against a slightly revamped squad headed by Bryan. A tight contest could develop if Kyler’s running back trio decides to show up.<br><br>Winner: Bryan<br><br><br>
+                        COLT VS CALEB:<br><br>A house divided cannot stand. These two former roommates and current Idahoans  residents will be avoiding eye contact this whole week as they pass by each other on their beautiful Boise downtown. What a great city. <br><br>Winner: Colt<br><br><br>
+                        JOSH VS ETHAN:<br><br>A new look squad for Josh looks to climb out of the sludge shit pit he has been entombed in, Ethan and Khalil will be tasked with making sure the dead do not rise.<br><br>Winner: Ethan<br><br><br>
+                        TETEO VS JAKE:<br><br>THE team of the season thus far helmed by Teteo squares off against the Jake’s meme team. Has the Yeti truly awakened? How long will Jake be able to start Raheem Mostert before he is forced to pivot? Find out this week!
+                        <br><br>Winner: Teteo<br><br><br>
+                        JASON VS ANDREW:<br><br>Jason has waited patiently for Pitts to produce and it paid off last week. A tough task lays ahead of him and his name is Andrew Weber. He owns a large stock of talented football players and he’s ready to unleash them all on top of Mr. Lange’s hopes and dreams. Will Ekeler arrive in time to save the day?
+
+                        <br><br>Winner: Andrew<br><br><br>
+                    </p>
+                    </div>
+                <div class="mandments" id="matchup3">
+                    <h3>Week 3 Matchups</h3>
+                    <p>
+                        ZACK VS BRYAN (see game of the week) <br><br>Winner: Bryan<br><br><br>
+                        KYLER VS CALEB:<br><br>The perfect get right game for Kyler against the scarecrow that is Caleb’s fantasy squad. Caleb may have renounced his faith in god after this rough start, but maybe there’s someone a little more sinister that can aid him now…<br><br>Winner: Kyler<br><br><br>
+                        COLT VS SAM:<br><br>Pittman will be back for colt, but his quarterback won’t. We’ll see you on the waiver line. The tenacity of Sam’s fearsome running back duo will be needed after they were only at 50% strength in his squeezer of a win.<br><br>Winner: Sam<br><br><br>
+                        JAKE VS ETHAN:<br><br>Looking to add coal to the fire off the back of last week’s win, Jake will be happy to see the return of Gabe Davis and an upgrade for Julio if he is able to suit up. Ethan will be sending up a prayer that Davante and Chase will decide to show up.<br><br>Winner: Jake<br><br><br>
+                        TETEO VS JASON:<br><br>The Juggernaut has arrived and his name is Teteo. The full strength of this team may not be needed to topple Jason who stands teetering on the edge of this early season.<br><br>Winner: Teteo<br><br><br>
+                        JOSH VS ANDREW:<br><br>Andrew has assembled a lot of wins from the draft this year and comes into this contest with the highest projected point total on the week. Josh is just trying to hold on. This one could be over early.
+                        <br><br>Winner: Andrew<br><br><br>
+                    </p>
+                    </div>
+            </div><br>
+        </main>
+    </body>
+    <footer>
+              <p>© TheBigDawgs</p>
+          </footer>
+</html>
