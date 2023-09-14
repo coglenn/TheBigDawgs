@@ -76,6 +76,7 @@ class MatchupModel(db.Model):
     team_2 = db.Column(db.Integer)
     description = db.Column(db.Text)
     winner = db.Column(db.String(100))
+    game_of_week_title = db.Column(db.String(100))
     game_of_week = db.Column(db.Boolean)
     upload_name = db.Column(db.String(250))
     
@@ -132,8 +133,11 @@ class NewsModel(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     week_number = db.Column(db.Integer)
+    news_post_title = db.Column(db.String(100))
     news_post = db.Column(db.Text)
+    messin_post_title = db.Column(db.String(100))
     messin_post = db.Column(db.Text)
+    news_upload_name = db.Column(db.String(250))
     upload_name = db.Column(db.String(250))
     
     

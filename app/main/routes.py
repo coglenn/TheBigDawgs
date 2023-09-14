@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, flash, redirect, url_for, app
+from flask import Flask, render_template, request, flash, redirect, url_for, app, session
 from app import db
 from app.main import bp
 from app.main.models import *
@@ -15,9 +15,11 @@ def home():
 @bp.route("/news/")
 def news():
     news = NewsModel.query.order_by(NewsModel.week_number)
+    week = NewsModel.query.with_entities(NewsModel.week_number).distinct()
     # top = league.top_scored_week()
     context = {
         'news': news,
+        "week": week,
     }
     return render_template("news.html", **context )
 
@@ -25,8 +27,10 @@ def news():
 def power():
     # power = PowerModel.query.order_by(PowerModel.power_rank).group_by(PowerModel.week_number)
     power = PowerModel.query.order_by(PowerModel.power_rank)
+    week = PowerModel.query.with_entities(PowerModel.week_number).distinct()
     context = {
         'power': power,
+        "week": week,
     }
     return render_template("power.html", **context)
 
@@ -37,7 +41,13 @@ def forum():
 
 @bp.route("/versus/")
 def versus():
-    return render_template("versus.html")
+    match = MatchupModel.query.all()
+    week = MatchupModel.query.with_entities(MatchupModel.week_number).distinct()
+    context = {
+        'match': match,
+        "week": week,
+    }
+    return render_template("versus.html", **context)
 
 @bp.route('/create/', methods = ['GET', 'POST'])
 def create():

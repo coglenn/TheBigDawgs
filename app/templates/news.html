@@ -3,7 +3,7 @@
 {% set active_page = "news" %}
 
 {% block content %}
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
         <header>
             <h3>Welcome to,</h3>
             <h1>THE BIG DAWGS</h1>
@@ -18,12 +18,15 @@
             <h1>'Mish's 'Mandments</h1>
             <img src="../static/moses.jpeg" id="moses" alt="">
             <div class="mandment-container">
+                {% for n in news %}
                 <div class="mandments" id="mandment8">
-                    <h3>Eighth 'Mandment</h3>
+                    <h3>{{ n.news_post_title }}</h3>
                     <p>
-                        <img src="../static/keepcalmfantasy.jpeg" class="mandment-img" alt="">
+                        {{ n.news_post }}
+                        <img src="../static/{{ n.news_upload_name }}" class="mandment-img" alt="">
                     </p>
                     </div>
+                    {% endfor %}
                 <div class="mandments" id="mandment7">
                     <h3>Seventh 'Mandment</h3>
                     <p>
@@ -91,12 +94,15 @@
             </div><br>
             <h2>Musin' with the 'Mish</h2>
             <div class="mandment-container">
+                {% for n in news %}
                 <div class="mandments" id="musing6">
-                    <h3>It's a meme week. </h3>
+                    <h3>{{ n.messin_post_title }}</h3>
                     <p>
-                        <img src="../static/fantasydnd.jpeg" class="mandment-img" alt="">
+                        {{ n.messin_post }}
+                        <img src="../static/{{ n.upload_name }}" class="mandment-img" alt="">
                     </p>
                    </div>
+                   {% endfor %}
                 <div class="mandments" id="musing5">
                     <h3>Hot Fella Fall</h3>
                     <p>

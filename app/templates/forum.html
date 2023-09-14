@@ -4,17 +4,7 @@
 
 {% block content %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>The Big Dawgs Forum</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="nav.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet">
-      <link rel="stylesheet" href="{{ url_for('static', filename='forum.css')}}">
-</head>
+
 
         <header>
             <h1>LEAGUE FORUMS</h1>
@@ -22,23 +12,21 @@
         </header>
 
         <main>
-            <div class="matchup" id="vsweek1">
-              <div id="" class="container">
+            
+            
               <a href="{{ url_for('main.create') }}" >
                 <button type="button" class="btn btn-primary">
                   Create Post
                 </button>
               </a>
-              </div>
-                <h4>
-                <div class="content">
+             <br>
+             <br>
                   <table border = 1>
                      <thead>
                        <td>Timestamp</td>
                         <td>Title</td>
                         <td>Post</td>
                         <td>Edit Post</td>
-
                      </thead>
                   {% for message in messages %}
                   <tr>
@@ -47,14 +35,12 @@
                     <td class="content">{{ message["content"] }}</td>
                     <td> <a href="{{ url_for('main.edit', id=message['id']) }}">Edit</a></td>
                   </tr>
-
                   {% endfor %}
                   </table>
-                </div>
-              </h4>
+                  <br>
             </div>
+            
         </main>
-
 {% endblock %}
 
-https://getbootstrap.com/docs/4.3/getting-started/introduction/
+
