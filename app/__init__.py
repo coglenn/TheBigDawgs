@@ -4,6 +4,7 @@ from config import Config, db, admin, UPLOAD_FOLDER
 
 def create_app(config_class=Config):
     app = Flask(__name__)
+    application = app
     app.config.from_object(config_class)
     app.config['TESTING'] = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
