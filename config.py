@@ -19,7 +19,7 @@ class Config:
     host = os.getenv("DB_HOST", "localhost")
     port = os.getenv("DB_PORT", 5432)
     db_name = os.getenv("DB_NAME", "thebigda_tbd")
-    SQLALCHEMY_DATABASE_URI = os.environ.get(f"postgresql://{user}:{passwd}@{host}:{port}/{db_name}")\
+    SQLALCHEMY_DATABASE_URI = os.environ.get(f"postgresql://{user}:{passwd}@{host}:{port}/{db_name}")
         # or 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
