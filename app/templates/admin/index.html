@@ -22,10 +22,12 @@
 		</video>
 	</div>
 {% endif %}
+{% if filename %}
 {% if '.mp4' not in filename %}
 	<div>
 		<img src="{{ url_for('main.display_image', filename=filename) }}">
 	</div>
+{% endif %}
 {% endif %}
 <form method="post" action="/admin" enctype="multipart/form-data">
     <dl>
