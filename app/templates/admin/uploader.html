@@ -15,19 +15,12 @@
 	  {% endif %}
 	{% endwith %}
 </p>
-{% if ".mp4" in filename %}
-	<div style="margin: 10px auto;">
-		<video autoplay="autoplay" controls="controls" preload="preload">
-			<source src="{{ url_for('main.display_image', filename=filename) }}" type="video/mp4"></source>
-		</video>
-	</div>
-{% endif %}
-{% if '.mp4' not in filename %}
+{% if filename %}
 	<div>
 		<img src="{{ url_for('main.display_image', filename=filename) }}">
 	</div>
 {% endif %}
-<form method="post" action="/admin" enctype="multipart/form-data">
+<form method="post" action="/admin/customviews" enctype="multipart/form-data">
     <dl>
 		<p>
 			<input type="file" name="file" autocomplete="off" required>

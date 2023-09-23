@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request, flash, redirect, url_for, app, session
 from app import db
+import config
 from app.main import bp
 from app.main.models import *
 import urllib.request
@@ -89,37 +90,44 @@ def delete(id):
     # flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('main.forum'))
 
-
+UPLOAD_FOLDER = 'static/uploads/'
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
+class MyView(BaseView):
+    def __init__(self, *args, **kwargs):
+        self._default_view = True
+        super(MyView, self).__init__(*args, **kwargs)
+        self.admin = Admin()
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 	
-# @bp.route('/')
-# def upload_form():
-# 	return render_template('upload.html')
+@bp.route('/admin')
+def upload_form():
+	return render_template('admin/index.html')
 
-@bp.route('/admin/', methods=['POST'])
+@bp.route('/admin', methods=['POST'])
 def upload_image():
-    print('test')
+    # print('test')
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
     file = request.files['file']
-    print(file)
+    # print(file)
     if file.filename == '':
         flash('No image selected for uploading')
         return redirect(request.url)
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        print('upload_image filename: ' + filename)
-        flash('Image successfully uploaded and displayed below')
-        return render_template('admin/index.html', filename=filename)
     else:
-        flash('Allowed image types are -> png, jpg, jpeg, gif')
-        return redirect(request.url)
+    # if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.abspath(f'app/static/uploads/{filename}'))
+        # print('upload_image filename: ' + filename)
+        flash('Image successfully uploaded and displayed below')
+        return MyView().render('admin/index.html', filename=filename)
+    # else:
+    #     flash('Allowed image types are -> png, jpg, jpeg, gif')
+    #     return redirect(request.url)
 
 @bp.route('/display/<filename>')
 def display_image(filename):

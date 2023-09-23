@@ -2,6 +2,7 @@ from app import db, admin
 import datetime
 from sqlalchemy import DateTime
 from flask_admin.contrib.sqla import ModelView
+from flask_admin import Admin, AdminIndexView, BaseView, expose
 
 
 
@@ -141,4 +142,11 @@ class NewsModel(db.Model):
     upload_name = db.Column(db.String(250))
     
     
-admin.add_view(ModelView(NewsModel, db.session))    
+admin.add_view(ModelView(NewsModel, db.session))   
+
+class MyView(BaseView):
+    @expose('/')
+    def index(self):
+        return self.render('admin/uploader.html')
+
+admin.add_view(MyView(name='Custom Views', endpoint='customviews'))
