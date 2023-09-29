@@ -14,7 +14,7 @@
                 {% if p.week_number == w.week_number %}
                     <li>{{ p.power_rank }}. {{ p.player_name }} - {{ p.desc }}</li><br>
                         {% if p.upload_name != None %}
-                            <img src="../static/{{ p.upload_name }}" id="dew">
+                            <img src="../static/uploads{{ p.upload_name }}" id="dew">
                         {% endif %}
                 {% endif %}
             {%endfor%}              
