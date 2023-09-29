@@ -112,7 +112,7 @@
                 {%for m in match%}
                 {% if m.week_number == w.week_number%}
                 {% if m.game_of_week == 1%}
-                <div class="mandments" id="matchup12">
+                
                     <h3>Week {{w.week_number}} Matchups</h3>
                         <p>
                             {{m.team_1}} VS {{m.team_2}} (see game of the week) <br><br>Winner: {{m.winner}}<br><br><br>
@@ -124,7 +124,7 @@
                         </p>
                     {% endif %}
                     {% endfor %}
-                    </div>
+                    
                     {% endfor %}
                 </div>
                 <!--<div class="mandments" id="matchup11">
