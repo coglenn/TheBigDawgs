@@ -1,12 +1,17 @@
 from app import db, admin
 import datetime
+import os
+# from os import path
+# import Path
 from sqlalchemy import DateTime
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import Admin, AdminIndexView, BaseView, expose
 
-
-
-today = datetime.date.today()
+# basedir = os.path.abspath(os.path.dirname(__file__))
+# print(basedir)
+# # upload_list = os.listdir('../app/static/upload')
+# # print(upload_list)
+# today = datetime.date.today()
 
 
 players_list = [ 
