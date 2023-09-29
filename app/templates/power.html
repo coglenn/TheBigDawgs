@@ -13,6 +13,12 @@
             {% for p in power %}  
                 {% if p.week_number == w.week_number %}
                     <li>{{ p.power_rank }}. {{ p.player_name }} - {{ p.desc }}</li><br>
+                    {% if p.dog_shitter_of_week == 1 %}
+                    <img src="../static/uploads/{{ p.upload_name }}" id="dog"><h2>DOG OF THE WEEK</h2><br>
+                    {% endif %}
+                    {% if p.dog_shitter_of_week == 2 %}
+                    <img src="../static/uploads/{{ p.upload_name }}" id="dew"><h2>SHITTER OF THE WEEK</h2><br>
+                    {% endif %}
                         {% if p.upload_name != None %}
                             <img src="../static/uploads/{{ p.upload_name }}" id="dew">
                         {% endif %}
