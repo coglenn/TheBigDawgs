@@ -8,5 +8,5 @@ __pycache__/
 app/main/__pycache__/models.cpython-311.pyc
 app/main/__pycache__/routes.cpython-311.pyc
 app/.DS_Store
-
+app/static/uploads/
 app.db
