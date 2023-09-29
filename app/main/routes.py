@@ -43,7 +43,7 @@ def forum():
 @bp.route("/versus/")
 def versus():
     match = MatchupModel.query.all()
-    week = MatchupModel.query.with_entities(MatchupModel.week_number).distinct()
+    week = MatchupModel.query.with_entities(MatchupModel.week_number).distinct().order_by(MatchupModel.week_number.desc())
     context = {
         'match': match,
         "week": week,
