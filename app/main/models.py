@@ -5,7 +5,7 @@ from flask_admin.contrib.sqla import ModelView
 from flask_admin import Admin, AdminIndexView, BaseView, expose
 
 
-
+today = datetime.date.today()
 
 class PostModel(db.Model):
 
@@ -64,7 +64,7 @@ class PowerView(ModelView):
                    }
 
 
-admin.add_view(PowerView(PowerModel, db.session))
+admin.add_view(PowerView(PowerModel, db.session, 'Power Rankings'))
 
 
 class MatchupModel(db.Model):
@@ -74,7 +74,7 @@ class MatchupModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     week_number = db.Column(db.Integer)
     team_1 = db.Column(db.String(100))
-    team_2 = db.Column(db.Integer)
+    team_2 = db.Column(db.String(100))
     description = db.Column(db.Text)
     winner = db.Column(db.String(100))
     game_of_week_title = db.Column(db.String(100))
@@ -125,7 +125,7 @@ class MatchupView(ModelView):
                    }
 
 
-admin.add_view(MatchupView(MatchupModel, db.session))    
+admin.add_view(MatchupView(MatchupModel, db.session, 'Matchups'))    
            
     
 class NewsModel(db.Model):
@@ -141,8 +141,20 @@ class NewsModel(db.Model):
     news_upload_name = db.Column(db.String(250))
     upload_name = db.Column(db.String(250))
     
+admin.add_view(ModelView(NewsModel, db.session, 'News Posts'))   
+
+
+class Week(db.Model):
     
-admin.add_view(ModelView(NewsModel, db.session))   
+    __tablename__ = 'week'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    week_number = db.Column(db.Integer)
+    week_complete = db.Column(db.Boolean)
+    season = db.Column(db.Integer, default=today.year)
+
+admin.add_view(ModelView(Week, db.session, 'Week Submitted'))  
+
 
 class MyView(BaseView):
     @expose('/')
@@ -150,3 +162,46 @@ class MyView(BaseView):
         return self.render('admin/uploader.html')
 
 admin.add_view(MyView(name='Custom Views', endpoint='customviews'))
+
+# form_choices = { 'team_1': [ ('Andrew', 'Andrew'),
+#                                     ('Bryan', 'Bryan'), 
+#                                     ('Caleb', 'Caleb'), 
+#                                     ('Colt', 'Colt'), 
+#                                     ('Ethan', 'Ethan'), 
+#                                     ('Jake', 'Jake'),
+#                                     ('Jason', 'Jason'),
+#                                     ('Josh', 'Josh'),  
+#                                     ('Kyler', 'Kyler'), 
+#                                     ('Sam', 'Sam'), 
+#                                     ('Teteo', 'Teteo'), 
+#                                     ('Zack', 'Zack'), 
+#                                     ],
+#                 'team_2': [ ('Andrew', 'Andrew'),
+#                                     ('Bryan', 'Bryan'), 
+#                                     ('Caleb', 'Caleb'), 
+#                                     ('Colt', 'Colt'), 
+#                                     ('Ethan', 'Ethan'), 
+#                                     ('Jake', 'Jake'),
+#                                     ('Jason', 'Jason'),
+#                                     ('Josh', 'Josh'),  
+#                                     ('Kyler', 'Kyler'), 
+#                                     ('Sam', 'Sam'), 
+#                                     ('Teteo', 'Teteo'), 
+#                                     ('Zack', 'Zack'), 
+#                                     ],
+#                 'winner': [ ('Andrew', 'Andrew'),
+#                                     ('Bryan', 'Bryan'), 
+#                                     ('Caleb', 'Caleb'), 
+#                                     ('Colt', 'Colt'), 
+#                                     ('Ethan', 'Ethan'), 
+#                                     ('Jake', 'Jake'),
+#                                     ('Jason', 'Jason'),
+#                                     ('Josh', 'Josh'),  
+#                                     ('Kyler', 'Kyler'), 
+#                                     ('Sam', 'Sam'), 
+#                                     ('Teteo', 'Teteo'), 
+#                                     ('Zack', 'Zack'), 
+#                                     ],
+#                 }
+
+# print(form_choices['team_1'][0])
