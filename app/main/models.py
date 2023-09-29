@@ -11,7 +11,7 @@ from flask_admin import Admin, AdminIndexView, BaseView, expose
 # print(basedir)
 # # upload_list = os.listdir('../app/static/upload')
 # # print(upload_list)
-# today = datetime.date.today()
+today = datetime.date.today()
 
 
 players_list = [ 
