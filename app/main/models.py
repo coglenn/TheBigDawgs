@@ -5,7 +5,24 @@ from flask_admin.contrib.sqla import ModelView
 from flask_admin import Admin, AdminIndexView, BaseView, expose
 
 
+
 today = datetime.date.today()
+
+
+players_list = [ 
+    ('Andrew', 'Andrew'),
+    ('Bryan', 'Bryan'), 
+    ('Caleb', 'Caleb'), 
+    ('Colt', 'Colt'), 
+    ('Ethan', 'Ethan'), 
+    ('Jake', 'Jake'),
+    ('Jason', 'Jason'),
+    ('Josh', 'Josh'),  
+    ('Kyler', 'Kyler'), 
+    ('Sam', 'Sam'), 
+    ('Teteo', 'Teteo'), 
+    ('Zack', 'Zack'), 
+    ]
 
 class PostModel(db.Model):
 
@@ -16,13 +33,48 @@ class PostModel(db.Model):
     title = db.Column(db.String(4096))
     content = db.Column(db.String(4096))
     
+
+from datetime import datetime, timedelta
+
+day = '7/sep/2023'
+dt = datetime.strptime(day, '%d/%b/%Y')
+start = dt - timedelta(days=dt.weekday())
+end = start + timedelta(days=7)
+print(start.strftime('%d/%b/%Y'))
+print(end.strftime('%d/%b/%Y'))
+
+from datetime import date, timedelta
+import sys
+#define function to create date range
+#adapted from functions on the web
+#can be altered to create list every n number of days by changing 7 to desired skip length
+def daterange(start_date, end_date):
+     for n in range(0, int((end_date - start_date).days) + 1, 7):
+         yield start_date + timedelta(n)
+         
+#create empty list to store dates
+datelist = []
+weekly_list = []
+#define start and end date for list of dates
+start_dt = date(2023, 9, 7)
+end_dt = today
+num = 0
+#append dates to list
+for dt in daterange(start_dt, end_dt):
+    num += 1
+    week_num = f'{num} week'
+    #print(dt.strftime("%Y-%m-%d"))
+    dt=dt.strftime('%b/%d/%Y')
+    datelist.append(dt)
+    weekly_list.append(num)
+print(weekly_list[-1])    
     
 class PowerModel(db.Model):
     
     __tablename__ = "PowerRankings"
     
     id = db.Column(db.Integer, primary_key=True)
-    week_number = db.Column(db.Integer)
+    week_number = db.Column(db.Integer, default = weekly_list[-1])
     player_name = db.Column(db.String(100))
     power_rank = db.Column(db.Integer)
     desc = db.Column(db.Text)
@@ -32,19 +84,7 @@ class PowerModel(db.Model):
 
 
 class PowerView(ModelView):
-    form_choices = { 'player_name': [ ('Andrew', 'Andrew'),
-                                     ('Bryan', 'Bryan'), 
-                                     ('Caleb', 'Caleb'), 
-                                     ('Colt', 'Colt'), 
-                                     ('Ethan', 'Ethan'), 
-                                     ('Jake', 'Jake'),
-                                     ('Jason', 'Jason'),
-                                     ('Josh', 'Josh'),  
-                                     ('Kyler', 'Kyler'), 
-                                     ('Sam', 'Sam'), 
-                                     ('Teteo', 'Teteo'), 
-                                     ('Zack', 'Zack'), 
-                                     ],
+    form_choices = { 'player_name': players_list,
                      'power_rank': [('1', '1st'), 
                                     ('2', '2nd'), 
                                     ('3', '3rd'), 
@@ -72,7 +112,7 @@ class MatchupModel(db.Model):
     __tablename__ = 'matchups'
     
     id = db.Column(db.Integer, primary_key=True)
-    week_number = db.Column(db.Integer)
+    week_number = db.Column(db.Integer, default = weekly_list[-1])
     team_1 = db.Column(db.String(100))
     team_2 = db.Column(db.String(100))
     description = db.Column(db.Text)
@@ -83,45 +123,9 @@ class MatchupModel(db.Model):
     
      
 class MatchupView(ModelView):
-    form_choices = { 'team_1': [ ('Andrew', 'Andrew'),
-                                     ('Bryan', 'Bryan'), 
-                                     ('Caleb', 'Caleb'), 
-                                     ('Colt', 'Colt'), 
-                                     ('Ethan', 'Ethan'), 
-                                     ('Jake', 'Jake'),
-                                     ('Jason', 'Jason'),
-                                     ('Josh', 'Josh'),  
-                                     ('Kyler', 'Kyler'), 
-                                     ('Sam', 'Sam'), 
-                                     ('Teteo', 'Teteo'), 
-                                     ('Zack', 'Zack'), 
-                                     ],
-                    'team_2': [ ('Andrew', 'Andrew'),
-                                     ('Bryan', 'Bryan'), 
-                                     ('Caleb', 'Caleb'), 
-                                     ('Colt', 'Colt'), 
-                                     ('Ethan', 'Ethan'), 
-                                     ('Jake', 'Jake'),
-                                     ('Jason', 'Jason'),
-                                     ('Josh', 'Josh'),  
-                                     ('Kyler', 'Kyler'), 
-                                     ('Sam', 'Sam'), 
-                                     ('Teteo', 'Teteo'), 
-                                     ('Zack', 'Zack'), 
-                                     ],
-                    'winner': [ ('Andrew', 'Andrew'),
-                                     ('Bryan', 'Bryan'), 
-                                     ('Caleb', 'Caleb'), 
-                                     ('Colt', 'Colt'), 
-                                     ('Ethan', 'Ethan'), 
-                                     ('Jake', 'Jake'),
-                                     ('Jason', 'Jason'),
-                                     ('Josh', 'Josh'),  
-                                     ('Kyler', 'Kyler'), 
-                                     ('Sam', 'Sam'), 
-                                     ('Teteo', 'Teteo'), 
-                                     ('Zack', 'Zack'), 
-                                     ],
+    form_choices = { 'team_1': players_list,
+                    'team_2': players_list,
+                    'winner': players_list,
                    }
 
 
@@ -133,7 +137,7 @@ class NewsModel(db.Model):
     __tablename__ = 'news'
     
     id = db.Column(db.Integer, primary_key=True)
-    week_number = db.Column(db.Integer)
+    week_number = db.Column(db.Integer, default = weekly_list[-1])
     news_post_title = db.Column(db.String(100))
     news_post = db.Column(db.Text)
     messin_post_title = db.Column(db.String(100))
@@ -149,19 +153,22 @@ class Week(db.Model):
     __tablename__ = 'week'
     
     id = db.Column(db.Integer, primary_key=True)
-    week_number = db.Column(db.Integer)
+    week_number = db.Column(db.Integer, default = weekly_list[-1])
     week_complete = db.Column(db.Boolean)
     season = db.Column(db.Integer, default=today.year)
 
-admin.add_view(ModelView(Week, db.session, 'Week Submitted'))  
+class WeekView(ModelView):
+    column_labels = dict(week_complete='Are all post for the week completed?',
+                         season='Season (Year)')
+admin.add_view(WeekView(Week, db.session, 'Week Submitted'))  
 
 
-class MyView(BaseView):
-    @expose('/')
-    def index(self):
-        return self.render('admin/uploader.html')
+# class MyView(BaseView):
+#     @expose('/')
+#     def index(self):
+#         return self.render('admin/uploader.html')
 
-admin.add_view(MyView(name='Custom Views', endpoint='customviews'))
+# admin.add_view(MyView(name='Custom Views', endpoint='customviews'))
 
 # form_choices = { 'team_1': [ ('Andrew', 'Andrew'),
 #                                     ('Bryan', 'Bryan'), 
