@@ -23,7 +23,7 @@
                         <h2>SHITTER OF THE WEEK</h2>
                         <br>
                     {% endif %}
-                        {% if p.upload_name != None and p.dog_shitter_of_week != '2' %}
+                        {% if p.upload_name != None and p.dog_shitter_of_week != '2' or p.dog_shitter_of_week != '1' %}
                             <img src="../static/uploads/{{ p.upload_name }}" id="dew">
                         {% endif %}
                         <li>{{ p.power_rank }}. {{ p.player_name }} - {{ p.desc }}</li><br>
