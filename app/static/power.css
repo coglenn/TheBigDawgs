@@ -24,6 +24,13 @@ div.rankings {
     margin-top: 40px;
 }
 
+#shitter{
+    max-width: 90vw;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+}
+
 #rankings{
     max-width: 90vw;
     display: block;
