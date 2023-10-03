@@ -62,7 +62,7 @@ from datetime import datetime, timedelta
 day = '7/sep/2023'
 dt = datetime.strptime(day, '%d/%b/%Y')
 start = dt - timedelta(days=dt.weekday())
-end = start + timedelta(days=7)
+end = start + timedelta(days=6)
 print(start.strftime('%d/%b/%Y'))
 print(end.strftime('%d/%b/%Y'))
 
@@ -71,7 +71,7 @@ import sys
 
 
 def daterange(start_date, end_date):
-     for n in range(0, int((end_date - start_date).days) + 1, 7):
+     for n in range(0, int((end_date - start_date).days) + 1, 6):
          yield start_date + timedelta(n)
          
 #create empty list to store dates
