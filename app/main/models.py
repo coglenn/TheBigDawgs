@@ -106,6 +106,7 @@ class PowerModel(db.Model):
 
 
 class PowerView(ModelView):
+    column_filters = ('week_number',)
     form_choices = { 'player_name': players_list,
                      'upload_name': file_list,
                      'power_rank': [('1', '1st'), 
@@ -146,6 +147,7 @@ class MatchupModel(db.Model):
     
      
 class MatchupView(ModelView):
+    column_filters = ('week_number',)
     form_choices = { 'team_1': players_list,
                     'team_2': players_list,
                     'winner': players_list,
@@ -170,6 +172,7 @@ class NewsModel(db.Model):
     upload_name = db.Column(db.String(250))
     
 class NewsView(ModelView):
+    column_filters = ('week_number',)
     form_choices = { 
                     'upload_name': file_list,
                    }    
@@ -187,6 +190,7 @@ class Week(db.Model):
     season = db.Column(db.Integer, default=today.year)
 
 class WeekView(ModelView):
+    column_filters = ('week_number',)
     column_labels = dict(week_complete='Check if all post for the week are completed',
                          season='Season (Year)')
 admin.add_view(WeekView(Week, db.session, 'Week Submitted'))  
