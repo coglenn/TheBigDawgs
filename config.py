@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
  
 db = SQLAlchemy()
-admin = Admin(name='The Dawgs Admin', template_mode='bootstrap3')
+admin = Admin(name='The Dawgs Admin', template_mode='bootstrap4')
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -32,8 +32,8 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DATABASE_QUERY_TIMEOUT = 0.1  # log the slow database query, and unit is second
     SQLALCHEMY_RECORD_QUERIES = True
-    # SQLALCHEMY_DATABASE_URI = os.environ.get(f"postgresql://{user}:{passwd}@{host}:{port}/{db_name}")\
-    #     or 'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_DATABASE_URI = os.environ.get(f"postgresql://{user}:{passwd}@{host}:{port}/{db_name}")\
+        or 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # db_uri = (

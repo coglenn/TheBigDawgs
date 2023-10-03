@@ -191,7 +191,7 @@ class Week(db.Model):
 
 class WeekView(ModelView):
     column_filters = ('week_number',)
-    column_labels = dict(week_complete='Check if all post for the week are completed',
+    column_labels = dict(week_complete='Check if all posts for the week are completed',
                          season='Season (Year)')
 admin.add_view(WeekView(Week, db.session, 'Week Submitted'))  
 

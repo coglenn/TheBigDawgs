@@ -112,7 +112,7 @@ def allowed_file(filename):
 	
 @bp.route('/admin')
 def upload_form():
-	return render_template('admin/index.html')
+	return MyView().render('admin/index.html')
 
 @bp.route('/admin', methods=['POST'])
 def upload_image():
