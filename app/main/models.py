@@ -68,9 +68,8 @@ print(end.strftime('%d/%b/%Y'))
 
 from datetime import date, timedelta
 import sys
-#define function to create date range
-#adapted from functions on the web
-#can be altered to create list every n number of days by changing 7 to desired skip length
+
+
 def daterange(start_date, end_date):
      for n in range(0, int((end_date - start_date).days) + 1, 7):
          yield start_date + timedelta(n)
@@ -188,7 +187,7 @@ class Week(db.Model):
     season = db.Column(db.Integer, default=today.year)
 
 class WeekView(ModelView):
-    column_labels = dict(week_complete='Are all post for the week completed?',
+    column_labels = dict(week_complete='Check if all post for the week are completed?',
                          season='Season (Year)')
 admin.add_view(WeekView(Week, db.session, 'Week Submitted'))  
 
