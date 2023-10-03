@@ -7,8 +7,26 @@ from sqlalchemy import DateTime
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import Admin, AdminIndexView, BaseView, expose
 
-# basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = os.path.abspath(os.path.dirname(__file__))
 # print(basedir)
+assets_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static/uploads'))
+# print(os.listdir(assets_dir))
+file_list = []
+f_valuelist = []
+for file in os.listdir(assets_dir):
+    # f = f'({file}, {file})'
+    file_list.append(file)
+    f_valuelist.append(file)
+    zip_list = zip(file_list, f_valuelist)  
+    # print(f'({file}, {file}),')
+file_list = list(zip_list)    
+print(file_list)     
+# zip_list = zip(file_list, f_valuelist)    
+# for file in file_list:
+#     print(file)    
+# print(list(zip_list))    
+# file_list = '[%s]' % ', '.join(map(str, file_list))   
+# print(file_list)
 # # upload_list = os.listdir('../app/static/upload')
 # # print(upload_list)
 today = datetime.date.today()
@@ -90,6 +108,7 @@ class PowerModel(db.Model):
 
 class PowerView(ModelView):
     form_choices = { 'player_name': players_list,
+                     'upload_name': file_list,
                      'power_rank': [('1', '1st'), 
                                     ('2', '2nd'), 
                                     ('3', '3rd'), 
@@ -131,6 +150,7 @@ class MatchupView(ModelView):
     form_choices = { 'team_1': players_list,
                     'team_2': players_list,
                     'winner': players_list,
+                    'upload_name': file_list,
                    }
 
 
@@ -150,7 +170,12 @@ class NewsModel(db.Model):
     news_upload_name = db.Column(db.String(250))
     upload_name = db.Column(db.String(250))
     
-admin.add_view(ModelView(NewsModel, db.session, 'News Posts'))   
+class NewsView(ModelView):
+    form_choices = { 
+                    'upload_name': file_list,
+                   }    
+    
+admin.add_view(NewsView(NewsModel, db.session, 'News Posts'))   
 
 
 class Week(db.Model):

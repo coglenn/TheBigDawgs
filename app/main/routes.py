@@ -6,6 +6,7 @@ from app.main import bp
 from app.main.models import *
 import urllib.request
 from werkzeug.utils import secure_filename
+# from flask_sqlalchemy import SQLAlchemy
 
 
 @bp.route('/')
@@ -28,7 +29,8 @@ def news():
 def power():
     # power = PowerModel.query.order_by(PowerModel.power_rank).group_by(PowerModel.week_number)
     power = PowerModel.query.order_by(PowerModel.power_rank)
-    week = PowerModel.query.with_entities(PowerModel.week_number).distinct()
+    # week = PowerModel.query.with_entities(PowerModel.week_number).distinct()
+    week = Week.query.filter_by(week_complete = True).all()
     context = {
         'power': power,
         "week": week,
@@ -42,11 +44,16 @@ def forum():
 
 @bp.route("/versus/")
 def versus():
+    week = Week.query.filter_by(week_complete = True).all()
+    # all = db.session.query(Week, MatchupModel).join(MatchupModel).all()
+    # for a in week_completed:
+    #     print(a.week_number)
     match = MatchupModel.query.order_by(MatchupModel.game_of_week.desc()).all()
-    week = MatchupModel.query.with_entities(MatchupModel.week_number).distinct()
+    # week = MatchupModel.query.with_entities(MatchupModel.week_number).distinct()
     context = {
         'match': match,
-        "week": week,
+        'week': week,
+        # 'week_completed': week_completed,
     }
     return render_template("versus.html", **context)
 
