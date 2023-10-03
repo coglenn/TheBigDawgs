@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
  
 db = SQLAlchemy()
-admin = Admin()
+admin = Admin(name='The Dawgs Admin', template_mode='bootstrap3')
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
