@@ -21,7 +21,7 @@
                 <div class="mandments" id="mandment8">
                     <h3>{{ n.news_post_title }}</h3>
                     <p>
-                        {{ n.news_post }}
+                        {{ n.news_post | safe }}
                         <img src="../static/{{ n.news_upload_name }}" class="mandment-img" alt="">
                     </p>
                     </div>
@@ -97,7 +97,7 @@
                 <div class="mandments" id="musing6">
                     <h3>{{ n.messin_post_title }}</h3>
                     <p>
-                        {{ n.messin_post }}
+                        {{ n.messin_post | safe }}
                         <img src="../static/{{ n.upload_name }}" class="mandment-img" alt="">
                     </p>
                    </div>

@@ -6,6 +6,7 @@ import os
 from sqlalchemy import DateTime
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import Admin, AdminIndexView, BaseView, expose
+from flask_ckeditor import CKEditor, CKEditorField
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 # print(basedir)
@@ -107,6 +108,9 @@ class PowerModel(db.Model):
 
 class PowerView(ModelView):
     column_filters = ('week_number',)
+    form_overrides = dict(desc=CKEditorField)
+    create_template = 'ckeditor.html'
+    edit_template = 'ckeditor.html'
     form_choices = { 'player_name': players_list,
                      'upload_name': file_list,
                      'power_rank': [('1', '1st'), 
@@ -148,6 +152,9 @@ class MatchupModel(db.Model):
      
 class MatchupView(ModelView):
     column_filters = ('week_number',)
+    form_overrides = dict(description=CKEditorField)
+    create_template = 'ckeditor.html'
+    edit_template = 'ckeditor.html'
     form_choices = { 'team_1': players_list,
                     'team_2': players_list,
                     'winner': players_list,
@@ -173,6 +180,10 @@ class NewsModel(db.Model):
     
 class NewsView(ModelView):
     column_filters = ('week_number',)
+    form_overrides = dict(news_post=CKEditorField, 
+                          messin_post=CKEditorField)
+    create_template = 'ckeditor.html'
+    edit_template = 'ckeditor.html'
     form_choices = { 
                     'upload_name': file_list,
                    }    
@@ -193,6 +204,7 @@ class WeekView(ModelView):
     column_filters = ('week_number',)
     column_labels = dict(week_complete='Check if all posts for the week are completed',
                          season='Season (Year)')
+
 admin.add_view(WeekView(Week, db.session, 'Week Submitted'))  
 
 

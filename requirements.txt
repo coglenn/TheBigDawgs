@@ -4,6 +4,7 @@ charset-normalizer==3.2.0
 click==8.1.7
 Flask==2.3.3
 Flask-Admin==1.6.1
+Flask_CKEditor==0.4.6
 Flask-DotEnv==0.1.2
 Flask-SQLAlchemy==3.0.5
 idna==3.4

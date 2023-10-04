@@ -1,8 +1,9 @@
 from flask import Flask
 from flask_admin import Admin
 from config import Config, db, admin, UPLOAD_FOLDER 
+from flask_ckeditor import CKEditor
 
-
+ckeditor = CKEditor()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -16,6 +17,7 @@ def create_app(config_class=Config):
     app.config['FLASK_ADMIN_SWATCH'] = 'superhero'
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+    ckeditor.init_app(app)
 
     # Initialize Flask extensions here
 

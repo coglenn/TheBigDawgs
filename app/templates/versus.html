@@ -118,7 +118,7 @@
                             {{m.team_1}} VS {{m.team_2}} (see game of the week) <br><br>Winner: {{m.winner}}<br><br><br>
                             
                             {% elif m.game_of_week == 0%}
-                            {{m.team_1}} VS {{m.team_2}}:<br><br>{{m.description}}
+                            {{m.team_1}} VS {{m.team_2}}:<br><br>{{m.description | safe}}
                             <br><br>Winner: {{m.winner}}<br><br><br>
                             {% endif %}
                         </p>
