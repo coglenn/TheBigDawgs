@@ -23,7 +23,7 @@
                 <div class="mandments" id="musing2">
                     <h3>{{m.game_of_week_title}} ({{w.week_number}})</h3>
                         <p>
-                            {{m.description}}
+                            {{m.description | safe}}
                             <img src="../static/uploads/{{m.upload_name}}">
                         </p>
                     {% endif %}
@@ -32,6 +32,7 @@
                    </div>
                    {%endfor%}
                 </div>
+            </div>    
             
 
                 <!-- <div class="mandments" id="musing2">
@@ -108,9 +109,9 @@
             </div> -->
             <h2>Predictions</h2>
             {%for w in week%}
-            {%for m in match%}
+            <div class="mandment-container">
             <div class="mandments" id="matchup12">
-                
+                {%for m in match%}
                 {% if m.week_number == w.week_number%}
                 {% if m.game_of_week == 1%}
                 
@@ -126,9 +127,9 @@
                     {% endif %}
                     {% endfor %}
                     
-                    
+                    {% endfor %}
                 </div>
-                {% endfor %}
+            </div>
                 <!--<div class="mandments" id="matchup11">
                     <h3>Week 11 Matchups</h3>
                     <p>
