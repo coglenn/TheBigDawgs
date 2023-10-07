@@ -108,8 +108,9 @@
             </div> -->
             <h2>Predictions</h2>
             {%for w in week%}
+            {%for m in match%}
             <div class="mandments" id="matchup12">
-                {%for m in match%}
+                
                 {% if m.week_number == w.week_number%}
                 {% if m.game_of_week == 1%}
                 
@@ -125,8 +126,9 @@
                     {% endif %}
                     {% endfor %}
                     
-                    {% endfor %}
+                    
                 </div>
+                {% endfor %}
                 <!--<div class="mandments" id="matchup11">
                     <h3>Week 11 Matchups</h3>
                     <p>

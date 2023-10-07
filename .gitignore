@@ -11,3 +11,4 @@ app/.DS_Store
 app/static/uploads/
 app.db
 app/static/.DS_Store
+app.db

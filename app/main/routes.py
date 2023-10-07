@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, flash, redirect, url_for, app, session
+from flask import Flask, render_template, request, flash, redirect, url_for, app, session, send_from_directory
 from app import db
 import config
 from app.main import bp
@@ -13,11 +13,16 @@ from werkzeug.utils import secure_filename
 def home():
     return render_template("index.html")
 
+# def filter_files():
+#     files = UploadModel.query.with_entities(UploadModel.filename).distinct()  
+#     return files
+
 # New functions
 @bp.route("/news/")
 def news():
     news = NewsModel.query.order_by(NewsModel.week_number)
-    week = NewsModel.query.with_entities(NewsModel.week_number).distinct()
+    week = Week.query.filter_by(week_complete = True).order_by(Week.week_number.desc()).all()
+    # week = NewsModel.query.with_entities(NewsModel.week_number).distinct()
     # top = league.top_scored_week()
     context = {
         'news': news,
@@ -30,7 +35,7 @@ def power():
     # power = PowerModel.query.order_by(PowerModel.power_rank).group_by(PowerModel.week_number)
     power = PowerModel.query.order_by(PowerModel.power_rank)
     # week = PowerModel.query.with_entities(PowerModel.week_number).distinct()
-    week = Week.query.filter_by(week_complete = True).all()
+    week = Week.query.filter_by(week_complete = True).order_by(Week.week_number.desc()).all()
     context = {
         'power': power,
         "week": week,
@@ -44,7 +49,7 @@ def forum():
 
 @bp.route("/versus/")
 def versus():
-    week = Week.query.filter_by(week_complete = True).all()
+    week = Week.query.filter_by(week_complete = True).order_by(Week.week_number.desc()).all()
     # all = db.session.query(Week, MatchupModel).join(MatchupModel).all()
     # for a in week_completed:
     #     print(a.week_number)
@@ -112,9 +117,15 @@ def allowed_file(filename):
 	
 @bp.route('/admin')
 def upload_form():
-	return MyView().render('admin/index.html')
+    # for uploaded_file in request.files.getlist('file'):
+    #     print(uploaded_file)
+        # if uploaded_file.filename != '':
+        #     uploaded_file.save(uploaded_file.filename)
+    # for item in send_from_directory(os.path.abspath(f'app/static/uploads/{filename}'), filename):
+    #     print(item)
+    return MyView().render('admin/index.html')
 
-@bp.route('/admin', methods=['POST'])
+@bp.route('/admin', methods=['GET', 'POST'])
 def upload_image():
     # print('test')
     if 'file' not in request.files:
@@ -128,7 +139,11 @@ def upload_image():
     else:
     # if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
+        # file.save(os.path.join(['UPLOAD_FOLDER'], filename))
         file.save(os.path.abspath(f'app/static/uploads/{filename}'))
+        # upload = UploadModel(filename=filename)
+        # db.session.add(upload)
+        # db.session.commit()
         # print('upload_image filename: ' + filename)
         flash('Image successfully uploaded and displayed below')
         return MyView().render('admin/index.html', filename=filename)
@@ -140,3 +155,9 @@ def upload_image():
 def display_image(filename):
 	#print('display_image filename: ' + filename)
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
+
+@bp.route('/uploads/<filename>')
+def uploaded_file(filename):
+    # for item in send_from_directory(os.path.abspath(f'app/static/uploads/{filename}'), filename):
+    #     print(item)
+    return send_from_directory(os.path.abspath(f'app/static/uploads/{filename}'), filename)

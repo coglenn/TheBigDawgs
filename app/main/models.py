@@ -1,4 +1,5 @@
-from app import db, admin
+from app import db, admin, create_app
+# from .app import app
 import datetime
 import os
 # from os import path
@@ -12,6 +13,9 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 # print(basedir)
 assets_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static/uploads'))
 # print(os.listdir(assets_dir))
+
+# week = MatchupModel.query.with_entities(MatchupModel.week_number).distinct()
+
 file_list = []
 f_valuelist = []
 for file in os.listdir(assets_dir):
@@ -21,7 +25,7 @@ for file in os.listdir(assets_dir):
     zip_list = zip(file_list, f_valuelist)  
     # print(f'({file}, {file}),')
 file_list = list(zip_list)    
-print(file_list)     
+# print(file_list)     
 # zip_list = zip(file_list, f_valuelist)    
 # for file in file_list:
 #     print(file)    
@@ -57,6 +61,30 @@ class PostModel(db.Model):
     title = db.Column(db.String(4096))
     content = db.Column(db.String(4096))
     
+
+class UploadModel(db.Model):
+    
+    __tablename__ = "Upload"
+    
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(4096))
+
+# def filter_files():
+#     files = UploadModel.query.with_entities(UploadModel.filename).distinct()  
+#     return files
+
+# print(filter_files)
+
+# file_list = []
+# f_valuelist = []
+# for file in files:
+#     # f = f'({file}, {file})'
+#     file_list.append(file)
+#     f_valuelist.append(file)
+#     zip_list = zip(file_list, f_valuelist)  
+#     # print(f'({file}, {file}),')
+# file_list = list(zip_list)  
+# print(file_list)   
 
 from datetime import datetime, timedelta
 
@@ -104,6 +132,7 @@ class PowerModel(db.Model):
     dog_shitter_of_week = db.Column(db.String(15))
     upload_name = db.Column(db.String(250))
     # photo = db.Column(db.String(
+
 
 
 class PowerView(ModelView):
