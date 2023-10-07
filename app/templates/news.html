@@ -22,7 +22,7 @@
                     <h3>{{ n.news_post_title }}</h3>
                     <p>
                         {{ n.news_post | safe }}
-                        <img src="../static/{{ n.news_upload_name }}" class="mandment-img" alt="">
+                        <img src="../static/uploads/{{ n.news_upload_name }}" class="mandment-img" alt="">
                     </p>
                     </div>
                     {% endfor %}
@@ -98,7 +98,7 @@
                     <h3>{{ n.messin_post_title }}</h3>
                     <p>
                         {{ n.messin_post | safe }}
-                        <img src="../static/{{ n.upload_name }}" class="mandment-img" alt="">
+                        <img src="../static/uploads/{{ n.upload_name }}" class="mandment-img" alt="">
                     </p>
                    </div>
                    {% endfor %}
