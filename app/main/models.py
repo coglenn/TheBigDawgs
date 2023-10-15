@@ -91,7 +91,7 @@ from datetime import datetime, timedelta
 day = '7/sep/2023'
 dt = datetime.strptime(day, '%d/%b/%Y')
 start = dt - timedelta(days=dt.weekday())
-end = start + timedelta(days=6)
+end = start + timedelta(days=7)
 print(start.strftime('%d/%b/%Y'))
 print(end.strftime('%d/%b/%Y'))
 
